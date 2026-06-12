@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetLint — Code Analyzer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-brand">
+        <span class="brand-icon">✦</span>
+        <h1 class="brand-title">LeetLint</h1>
+        <span class="brand-tagline">Refine your solutions</span>
+      </div>
+      <div class="header-actions">
+        <div class="lang-selector">
+          <select id="langSelect" class="lang-select">
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="cpp">C++</option>
+            <option value="c">C</option>
+          </select>
+          <span class="lang-select-arrow">▾</span>
+        </div>
+        <button class="btn btn-ghost" id="resetBtn" title="Reset editor">Reset</button>
+        <button class="btn btn-primary" id="analyzeBtn">Analyze Code</button>
+      </div>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <div class="main-layout">
+
+      <!-- LEFT PANEL: Code Editor -->
+      <section class="panel editor-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">
+            <span class="panel-icon">&lt;/&gt;</span>
+            Your Solution
+          </h2>
+          <span class="panel-badge" id="langBadge">JavaScript</span>
+        </div>
+
+        <div class="editor-wrapper">
+          <div class="editor-gutter" id="gutter"></div>
+          <div class="editor-content">
+            <div class="editor-overlay" id="editorOverlay" aria-hidden="true"></div>
+            <textarea
+              class="editor-textarea"
+              id="codeInput"
+              placeholder="Paste or type your LeetCode solution here..."
+              spellcheck="false"
+              autofocus
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="editor-footer">
+          <span class="editor-stat" id="lineCount">Lines: 0</span>
+          <span class="editor-stat" id="charCount">Chars: 0</span>
+        </div>
+      </section>
+
+      <!-- RIGHT PANEL -->
+      <aside class="panel results-panel">
+
+        <!-- ERRORS -->
+        <div class="results-section" id="errorsSection">
+          <div class="section-header">
+            <h3 class="section-title">
+              <span class="section-icon">!</span>
+              Errors
+            </h3>
+            <span class="section-count" id="errorCount">0</span>
+          </div>
+          <div class="section-body" id="errorsList">
+            <div class="empty-state">
+              <span class="empty-icon">✓</span>
+              <p>No errors detected yet. Paste your code and click <strong>Analyze</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESOURCES -->
+        <div class="results-section" id="resourcesSection">
+          <div class="section-header">
+            <h3 class="section-title">
+              <span class="section-icon">📚</span>
+              Resources
+            </h3>
+            <span class="section-count" id="resourceCount">0</span>
+          </div>
+          <div class="section-body" id="resourcesList">
+            <div class="empty-state">
+              <span class="empty-icon">📖</span>
+              <p>Resources will appear once errors are detected.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALTERNATIVE SOLUTIONS -->
+        <div class="results-section" id="solutionsSection">
+          <div class="section-header">
+            <h3 class="section-title">
+              <span class="section-icon">◇</span>
+              Approaches
+            </h3>
+            <span class="section-count" id="solutionCount">0</span>
+          </div>
+          <div class="section-body" id="solutionsList">
+            <div class="empty-state">
+              <span class="empty-icon">✦</span>
+              <p>Alternative approaches will be suggested here.</p>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+  </div>
+
+  <script src="js/analyzer.js"></script>
+  <script src="js/resources.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
